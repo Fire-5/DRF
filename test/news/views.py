@@ -6,13 +6,13 @@ from news.serializers import PostSerializer, UserSerializer, GroupSerializer
 from .models import Post
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 
-class GroupViewSet(viewsets.ModelViewSet):
+class GroupViewSet(generics.ListCreateAPIView):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
