@@ -3,8 +3,8 @@
 /.idea/
 /.pytest_cache/
 /__pycache__/
-/test/__pycache__/
-/new/__pycache__/
+/test/test/__pycache__/
+/test/test/__pycache__/
 /venv/
 /venv310/
 /env/
