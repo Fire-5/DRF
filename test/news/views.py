@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, permissions, generics
+from rest_framework.parsers import MultiPartParser, FormParser
+
 from news.serializers import PostSerializer, UserSerializer, GroupSerializer
 from .models import Post
 
@@ -25,5 +27,6 @@ class PostList(generics.ListCreateAPIView):
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
+    parser_classes = (MultiPartParser, FormParser)
     serializer_class = PostSerializer
 
