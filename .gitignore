@@ -1,0 +1,13 @@
+
+# Default ignored files
+/.idea/
+/.pytest_cache/
+/__pycache__/
+/test/__pycache__/
+/new/__pycache__/
+/venv/
+/venv310/
+/env/
+
+*.sqlite
+*.pyc
