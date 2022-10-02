@@ -1,19 +1,31 @@
 
 # Default ignored files
-/.idea/
-/.pytest_cache/
+.idea/
+.pytest_cache/
 /__pycache__/
+__pycache__/
 
 test/test/__pycache__/settings.cpython-310.pyc
 test/test/__pycache__/urls.cpython-310.pyc
 test/news/__pycache__/serializers.cpython-310.pyc
 test/news/__pycache__/views.cpython-310.pyc
-/venv/
-/venv310/
+
+venv310/
 /env/
+.env
+.venv
+env/
+venv/
+ENV/
 
 *.sqlite
 *.sqlite3
 *.pyc
 *.jpg
 
+test/.env
+
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal

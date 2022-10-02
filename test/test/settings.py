@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
+import dotenv
+
+dotenv.load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-yp^+$r9)%t73t)82bv7z^^r2)jbjydgkd+!0w@wy*l*zeb9kb@'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -38,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'news'
+    'news',
     'djcelery_email',
     # 'news.apps.PostsConfig',
 ]
@@ -140,14 +143,15 @@ MEDIA_URL = '/media/'
 # python -m smtpd -n -c DebuggingServer localhost:1025
 # EMAIL_HOST = 'localhost'
 # EMAIL_PORT = 1025
-EMAIL_HOST = 'smtp.yandex.ru'
-EMAIL_PORT = 465
+EMAIL_HOST = os.getenv('EMAIL_HOST_USER')
+EMAIL_PORT = os.getenv('EMAIL_HOST_USER')
+EMAIL_USE_TLS = os.getenv('EMAIL_HOST_USER')
+EMAIL_USE_SSL = os.getenv('EMAIL_HOST_USER')
 # Для теста вказываю свою почту, но это не правильно. 
 # Надо как-то передавать её как системные переменные...
-EMAIL_HOST_USER = 'alexandr_krasnot@mail.ru'
-EMAIL_HOST_PASSWORD = '89135271429fire5123'
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
+# UPD: Добавил во внешний файл ".env", который будет скрыт.
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 SERVER_EMAIL = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 

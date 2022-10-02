@@ -21,16 +21,18 @@
 # msg = mail.EmailMessage()
 # tasks.send_email(msg, backend_kwargs={})
 
+# https://levelup.gitconnected.com/introduction-to-message-queue-build-a-newsletter-app-using-django-celery-and-rabbitmq-in-30-min-6d484162391d
 
 import os
 from celery import Celery
 from django.conf import settings
 
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 
+                      'django_project.settings')
 
 app = Celery('django_project')
 
-app.config_from_object('django.conf:settings')
+app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 

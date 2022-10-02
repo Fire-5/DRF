@@ -18,6 +18,7 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers
+
 from news import views
 
 # Из демки https://www.django-rest-framework.org/#quickstart
