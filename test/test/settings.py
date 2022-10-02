@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'news'
+    'djcelery_email',
     # 'news.apps.PostsConfig',
 ]
 
@@ -139,3 +140,21 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
 
 # URL used to access the media
 MEDIA_URL = '/media/'
+
+# python -m smtpd -n -c DebuggingServer localhost:1025
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = 1025
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+# Для теста вказываю свою почту, но это не правильно. 
+# Надо как-то передавать её как системные переменные...
+EMAIL_HOST_USER = 'alexandr_krasnot@mail.ru'
+EMAIL_HOST_PASSWORD = '89135271429fire5123'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Set django-celery-email as your EMAIL_BACKEND
+# EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

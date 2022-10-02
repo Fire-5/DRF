@@ -3,8 +3,11 @@
 /.idea/
 /.pytest_cache/
 /__pycache__/
-/test/test/__pycache__/
-/test/news/__pycache__/
+
+test/test/__pycache__/settings.cpython-310.pyc
+test/test/__pycache__/urls.cpython-310.pyc
+test/news/__pycache__/serializers.cpython-310.pyc
+test/news/__pycache__/views.cpython-310.pyc
 /venv/
 /venv310/
 /env/
@@ -13,3 +16,4 @@
 *.sqlite3
 *.pyc
 *.jpg
+
